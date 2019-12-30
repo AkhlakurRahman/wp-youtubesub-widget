@@ -11,3 +11,18 @@ Author URI: https://akrahman.me
 if (!defined('ABSPATH')) {
   exit();
 }
+
+// Load scripts
+require_once(plugin_dir_path(__FILE__) . '/includes/youtubesubs-scripts.php');
+
+// Load widget
+require_once(plugin_dir_path(__FILE__) . '/includes/YoutubeSubsWidget.php');
+
+// Register widget
+function youtubesubs_register_widget()
+{
+  register_widget('YoutubeSubsWidget');
+}
+
+// Hook widget to action
+add_action('widgets_init', 'youtubesubs_register_widget');
